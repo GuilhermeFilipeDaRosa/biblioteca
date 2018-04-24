@@ -5,7 +5,7 @@
  */
 package model;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  *
@@ -19,22 +19,6 @@ public class Emprestimo {
     private Date dataEntrega;
     private String Status;
     private String DataRetirada;
-
-    public String getDataRetirada() {
-        return DataRetirada;
-    }
-
-    public void setDataRetirada(String DataRetirada) {
-        this.DataRetirada = DataRetirada;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getLivroId() {
         return livroId;
@@ -50,6 +34,22 @@ public class Emprestimo {
 
     public void setEstudanteId(int estudanteId) {
         this.estudanteId = estudanteId;
+    }
+
+    public String getDataRetirada() {
+        return DataRetirada;
+    }
+
+    public void setDataRetirada(String DataRetirada) {
+        this.DataRetirada = DataRetirada;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Date getDataDevolucao() {
