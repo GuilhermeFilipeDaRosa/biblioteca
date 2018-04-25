@@ -18,7 +18,7 @@ public class Emprestimo {
     private Date dataDevolucao;
     private Date dataEntrega;
     private String Status;
-    private String DataRetirada;
+    private Date DataRetirada;
 
     public int getLivroId() {
         return livroId;
@@ -36,11 +36,11 @@ public class Emprestimo {
         this.estudanteId = estudanteId;
     }
 
-    public String getDataRetirada() {
+    public Date getDataRetirada() {
         return DataRetirada;
     }
 
-    public void setDataRetirada(String DataRetirada) {
+    public void setDataRetirada(Date DataRetirada) {
         this.DataRetirada = DataRetirada;
     }
 

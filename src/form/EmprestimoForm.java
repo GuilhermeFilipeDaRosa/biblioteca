@@ -23,6 +23,7 @@ import model.Livro;
  */
 public class EmprestimoForm extends javax.swing.JFrame {
 
+        
     /**
      * Creates new form EmprestimoForm
      */
@@ -62,7 +63,6 @@ public class EmprestimoForm extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         btnBuscarEstudante = new javax.swing.JButton();
         btnBuscarLivro = new javax.swing.JButton();
-        btnEntrega = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtDataEntrega = new javax.swing.JTextField();
 
@@ -136,100 +136,90 @@ public class EmprestimoForm extends javax.swing.JFrame {
             }
         });
 
-        btnEntrega.setText("Registrar Entrega");
-        btnEntrega.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntregaActionPerformed(evt);
-            }
-        });
-
         jLabel6.setText("Data de Entrega");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnNovo)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnDeletar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSalvar)
-                        .addGap(27, 27, 27))))
             .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtDataEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEntrega))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6))
+                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel4))
-                                .addGap(31, 31, 31)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtLivroId)
-                                        .addGap(32, 32, 32)
-                                        .addComponent(btnBuscarLivro))
-                                    .addComponent(txtId, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtDataDevolucao)
-                                    .addComponent(txtStatus)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(63, 63, 63)
-                                .addComponent(txtEstudanteId)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnBuscarEstudante)))))
+                                .addComponent(txtLivroId)
+                                .addGap(32, 32, 32)
+                                .addComponent(btnBuscarLivro))
+                            .addComponent(txtId, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtDataDevolucao)
+                            .addComponent(txtStatus)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(63, 63, 63)
+                        .addComponent(txtEstudanteId)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscarEstudante)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(284, 284, 284)
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnNovo)
+                .addGap(18, 18, 18)
+                .addComponent(btnDeletar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSalvar)
+                .addGap(26, 26, 26))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(172, 172, 172)
+                .addComponent(txtDataEntrega)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(4, 4, 4)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEntrega)
-                    .addComponent(txtDataEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBuscarEstudante)
-                    .addComponent(txtEstudanteId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBuscarLivro)
-                    .addComponent(txtLivroId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
+                .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnBuscarEstudante)
+                            .addComponent(txtEstudanteId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnBuscarLivro)
+                            .addComponent(txtLivroId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                        .addComponent(txtDataEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel6)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
@@ -238,7 +228,7 @@ public class EmprestimoForm extends javax.swing.JFrame {
                     .addComponent(btnNovo)
                     .addComponent(btnDeletar)
                     .addComponent(btnSalvar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -248,17 +238,19 @@ public class EmprestimoForm extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         Emprestimo emprestimo = new Emprestimo();
         emprestimo.setId(Integer.parseInt(txtId.getText()));
-        //livro.setEditora((Editora) cbEditora.getSelectedItem());
         emprestimo.setEstudanteId(Integer.parseInt(txtEstudanteId.getText()));
         emprestimo.setLivroId(Integer.parseInt(txtLivroId.getText()));
         emprestimo.setStatus(txtStatus.getText());
-        SimpleDateFormat f = new SimpleDateFormat("dd/mm/yyyy");
+        SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
         Date dataDevolucao = new Date();
+        Date dataEntrega = new Date();
         try {
             dataDevolucao = f.parse(txtDataDevolucao.getText());
+            dataEntrega = f.parse(txtDataEntrega.getText());
         } catch (ParseException ex) {
             Logger.getLogger(EmprestimoForm.class.getName()).log(Level.SEVERE, null, ex);
         }
+        emprestimo.setDataEntrega(dataEntrega);
         emprestimo.setDataDevolucao(dataDevolucao);
         try {
             if(mode.equals("INS")){
@@ -278,6 +270,7 @@ public class EmprestimoForm extends javax.swing.JFrame {
         txtLivroId.setText("");
         txtStatus.setText("");
         txtDataDevolucao.setText("");
+        txtDataEntrega.setText("");
         mode = "INS";
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -302,7 +295,8 @@ public class EmprestimoForm extends javax.swing.JFrame {
         txtId.setText((String) tabela.getValueAt(row, 0));
         txtEstudanteId.setText((String) tabela.getValueAt(row, 1));
         txtLivroId.setText((String) tabela.getValueAt(row, 2));
-        txtDataDevolucao.setText((String) tabela.getValueAt(row, 3));
+        txtDataDevolucao.setText((String)(tabela.getValueAt(row, 3)));
+        txtDataEntrega.setText((String) (tabela.getValueAt(row, 4)));
         txtStatus.setText((String) tabela.getValueAt(row, 6));
     }//GEN-LAST:event_tabelaMouseClicked
 
@@ -317,34 +311,16 @@ public class EmprestimoForm extends javax.swing.JFrame {
        dialog.setVisible(true);
        txtLivroId.setText(""+dialog.getLivroId());
     }//GEN-LAST:event_btnBuscarLivroActionPerformed
-
-    private void btnEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntregaActionPerformed
-        Emprestimo emprestimo = new Emprestimo();
-        SimpleDateFormat f = new SimpleDateFormat("dd/mm/yyyy");
-        Date dataEntrega = new Date();
-        try {
-            dataEntrega = f.parse(txtDataEntrega.getText());
-        } catch (ParseException ex) {
-            Logger.getLogger(EmprestimoForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        emprestimo.setDataEntrega(dataEntrega);
-        emprestimo.setId(Integer.parseInt(txtId.getText()));
-        try {
-            emprestimoDAO.entrega(emprestimo);
-        } catch (Exception ex) {
-            Logger.getLogger(EmprestimoForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        listar();
-    }//GEN-LAST:event_btnEntregaActionPerformed
         public void listar(){
         DefaultTableModel model = (DefaultTableModel)tabela.getModel();
+        SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
         // Limpar tabela
         model.setNumRows(0);
         try {
             //Buscar lista de objetos
             for (Emprestimo emprestimo  : emprestimoDAO.findAll()){
-                String linha[] = {""+emprestimo.getId(), ""+emprestimo.getEstudanteId(), ""+emprestimo.getLivroId(), ""+emprestimo.getDataDevolucao(), ""+emprestimo.getDataEntrega(),
-                                  ""+emprestimo.getDataRetirada(), emprestimo.getStatus()};
+                String linha[] = {""+emprestimo.getId(), ""+emprestimo.getEstudanteId(), ""+emprestimo.getLivroId(), ""+f.format(emprestimo.getDataDevolucao()), ""+f.format(emprestimo.getDataEntrega()),
+                                  ""+f.format(emprestimo.getDataRetirada()), emprestimo.getStatus()};
                 model.addRow(linha);
             }
         } catch (Exception ex) {
@@ -385,13 +361,13 @@ public class EmprestimoForm extends javax.swing.JFrame {
             }
         });
     }
+    
     private EmprestimoDAO emprestimoDAO;
     private String mode = "INS";
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarEstudante;
     private javax.swing.JButton btnBuscarLivro;
     private javax.swing.JButton btnDeletar;
-    private javax.swing.JButton btnEntrega;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;

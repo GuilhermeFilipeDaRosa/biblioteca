@@ -26,7 +26,7 @@ public class EmprestimoDAO {
     }
 
     public void save(Emprestimo emprestimo) throws Exception {
-        String SQL = "INSERT INTO EMPRESTIMO(EMPRESTIMO_ID, LIVRO_ID, ESTUDANTE_ID, DATA_RETIRADA, DATA_DEVOLUCAO, STATUS) VALUES(?, ?, ?, ?, ?, ?)";
+        String SQL = "INSERT INTO EMPRESTIMO(EMPRESTIMO_ID, LIVRO_ID, ESTUDANTE_ID, DATA_RETIRADA, DATA_DEVOLUCAO, STATUS, DATA_ENTREGA) VALUES(?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement p = connection.prepareStatement(SQL);
             p.setInt(1, emprestimo.getId());
@@ -37,6 +37,7 @@ public class EmprestimoDAO {
             p.setDate(4, dt);
             p.setDate(5, new Date(emprestimo.getDataDevolucao().getTime()));
             p.setString(6, emprestimo.getStatus());
+            p.setDate(7, new Date (emprestimo.getDataEntrega().getTime()));
             p.execute();
             JOptionPane.showMessageDialog(null, "Inserido!");
         } catch (SQLException ex) {
@@ -46,25 +47,16 @@ public class EmprestimoDAO {
     }
     
     public void update(Emprestimo emprestimo) throws Exception {
-        String SQL = "UPDATE EMPRESTIMO SET LIVRO_ID=?, ESTUDANTE_ID=?, DATA_DEVOLUCAO=?, STATUS=? WHERE EMPRESTIMO_ID=?";
+        String SQL = "UPDATE EMPRESTIMO SET LIVRO_ID=?, ESTUDANTE_ID=?, DATA_DEVOLUCAO=?, STATUS=?, DATA_ENTREGA=? WHERE EMPRESTIMO_ID=?";
         PreparedStatement p = connection.prepareStatement(SQL);
         p.setInt(1, emprestimo.getLivroId());
         p.setInt(2, emprestimo.getEstudanteId());
         p.setDate(3, new Date(emprestimo.getDataDevolucao().getTime()));
-        p.setString(5, emprestimo.getStatus());
-        p.setInt(5, emprestimo.getId());
+        p.setString(4, emprestimo.getStatus());
+        p.setDate(5, new Date(emprestimo.getDataEntrega().getTime()));
+        p.setInt(6, emprestimo.getId());
         p.execute();
         JOptionPane.showMessageDialog(null, "REGISTRO MODIFICADO!");
-    }
-    public void entrega(Emprestimo emprestimo){
-        String SQL = "UPDATE EMPRESTIMO SET DATA_ENTREGA=? WHERE EMPRESTIMO_ID=?";
-        try {
-            PreparedStatement p = connection.prepareStatement(SQL);
-            p.setDate(1, new Date(emprestimo.getDataEntrega().getTime()));
-            p.setInt(2, emprestimo.getId());
-        } catch (SQLException ex) {
-            Logger.getLogger(EmprestimoDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
     public void delete(Emprestimo emprestimo) throws Exception{
        String SQL="DELETE FROM EMPRESTIMO WHERE EMPRESTIMO_ID=?";
@@ -82,9 +74,11 @@ public class EmprestimoDAO {
         // Lista para manter os valores do ResultSet
         List<Emprestimo> list = new ArrayList<>();
         Emprestimo objeto;
-        String SQL = "SELECT E.*, L.LIVRO_ID, ES.ESTUDANTE_ID FROM EMPRESTIMO E "
-                + "INNER JOIN LIVRO L  ON L.LIVRO_ID = E.LIVRO_ID "
-                + "INNER JOIN ESTUDANTE ES ON ES.ESTUDANTE_ID =  E.ESTUDANTE_ID "
+        String SQL = "SELECT E.EMPRESTIMO_ID,E.DATA_ENTREGA AS ENTREGA, E.DATA_DEVOLUCAO, E.DATA_RETIRADA, E.STATUS, "
+                + "E.ESTUDANTE_ID, E.LIVRO_ID "
+                + "FROM EMPRESTIMO E "
+                + "INNER JOIN LIVRO L  ON (L.LIVRO_ID = E.LIVRO_ID) "
+                + "INNER JOIN ESTUDANTE ES ON (ES.ESTUDANTE_ID =  E.ESTUDANTE_ID) "
                 + "ORDER BY EMPRESTIMO_ID ";
         try {
             PreparedStatement p = connection.prepareStatement(SQL);
@@ -95,11 +89,9 @@ public class EmprestimoDAO {
                 // Instancia a classe e informa os valores do BD
                 objeto = new Emprestimo();
                 objeto.setId(rs.getInt("EMPRESTIMO_ID"));
-                //objeto.setLivroId(rs.getInt("LIVRO_ID"));
-                //objeto.setEstudanteId(rs.getInt("ESTUDANTE_ID"));
                 objeto.setDataEntrega(rs.getDate("DATA_ENTREGA"));
                 objeto.setDataDevolucao(rs.getDate("DATA_DEVOLUCAO"));
-                objeto.setDataRetirada(rs.getString("DATA_RETIRADA"));
+                objeto.setDataRetirada(rs.getDate("DATA_RETIRADA"));
                 objeto.setStatus(rs.getString("STATUS"));
                 objeto.setEstudanteId(rs.getInt("ESTUDANTE_ID"));
                 objeto.setLivroId(rs.getInt("LIVRO_ID"));
